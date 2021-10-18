@@ -13,7 +13,7 @@ class CampanhaGruposCidadesController extends Controller
     }
 
     public function index(){
-        return CampanhaGrupoCidades::with(['grupoCidades.cidades.cidade', 'produtos', 'desconto'])->get();
+        return CampanhaGrupoCidades::with(['grupoCidades.cidades.cidade', 'produtos', 'desconto', 'users'])->get();
     }
 
 }

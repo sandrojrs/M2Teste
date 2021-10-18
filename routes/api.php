@@ -9,7 +9,7 @@ use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\GruposCidadesController;
 use App\Http\Controllers\CampanhaGruposCidadesController;
 use App\Http\Controllers\DescontoProdutoCampanhaController;
-
+use App\Http\Controllers\RelacaoGrupoCidadeController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -36,6 +36,8 @@ Route::middleware(['apiJWT'])->group(function () {
     route::resource('/campanha-grupo-cidades', CampanhaGruposCidadesController::class);
      /** crud desconto produtos da campanha */
     route::resource('/desconto-produto-campanha', DescontoProdutoCampanhaController::class);
+      /** crud relação grupo de cidades */
+    route::resource('/relacao-grupo-cidades', RelacaoGrupoCidadeController::class);
 
 
 });

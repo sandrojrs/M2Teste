@@ -21,7 +21,8 @@ class CampanhaGrupoCidadesTableSeeder extends Seeder
                 [
                     "campanha_grupo_cidade"=> "lançamento verão",
                     "grupo_cidades_id"=> 1,
-                    "produto_id" => 1
+                    "produto_id" => 1,
+                    "user_id" => 1
 
                 ],
             ]);

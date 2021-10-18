@@ -17,9 +17,11 @@ class CreateCampanhaGrupoCidadesTable extends Migration
             $table->id();
             $table->string('campanha_grupo_cidade');
             $table->unsignedBigInteger('grupo_cidades_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('produto_id');
             $table->foreign('grupo_cidades_id')->references('id')->on('grupo_cidades')->onDelete('cascade');
             $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

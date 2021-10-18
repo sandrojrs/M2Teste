@@ -43,7 +43,7 @@ class Controller extends BaseController
         $resource = $this->class::find($id);
 
         if(is_null($resource))
-            return response()->json('Resource does not exist', 404);
+           return response()->json('Registro não encontrado', 404);
 
             try {
                 $resource->fill($request->all());
@@ -60,7 +60,7 @@ class Controller extends BaseController
         $destroyed = $this->class::destroy($id);
 
         if($destroyed === 0)
-            return response()->json('Resource does not exist', 404);
+           return response()->json('Registro não encontrado', 404);
 
         return response()->json(['Deletado com sucesso'], 204);
     }

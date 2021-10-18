@@ -10,7 +10,7 @@ class CampanhaGrupoCidades extends Model
     use HasFactory;
 
     protected $fillable = [
-        'campanha_grupo_cidade','grupo_cidades_id','produto_id'
+        'campanha_grupo_cidade','grupo_cidades_id','produto_id', 'user_id'
     ];
 
     public $timestamps = false;
@@ -23,6 +23,9 @@ class CampanhaGrupoCidades extends Model
     }
     function desconto (){
         return $this->hasOne(DescontoProdutoCampanha::class, 'campanha_id');
+    }
+    function users (){
+        return $this->hasOne(User::class, 'id');
     }
 
 }

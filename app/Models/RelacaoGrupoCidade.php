@@ -11,6 +11,10 @@ class RelacaoGrupoCidade extends Model
 
     public $timestamps = false;
 
+    protected $rules = [
+        'cidade_id' => 'required|number|unique:relacao_grupo_cidades',
+    ];
+
     protected $fillable = [
         'grupo_cidades_id','cidade_id'
     ];
