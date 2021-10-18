@@ -10,5 +10,4 @@ class CidadesController extends Controller
     {
         $this->class = Cidades::class;
     }
-
 }

@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class DescontoProdutoCampanha extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
     protected $fillable = [
-        'desconto_produto_campanha'
+        'desconto_produto_campanha', 'campanha_id'
     ];
 
     function campanha (){

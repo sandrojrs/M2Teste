@@ -15,9 +15,9 @@ class CreateDescontoProdutoCampanhasTable extends Migration
     {
         Schema::create('desconto_produto_campanhas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('produto_id');
+            $table->unsignedBigInteger('campanha_id');
             $table->string('desconto_produto_campanha');
-            $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
+            $table->foreign('campanha_id')->references('id')->on('campanha_grupo_cidades')->onDelete('cascade');
         });
     }
 

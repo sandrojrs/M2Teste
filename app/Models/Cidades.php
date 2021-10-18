@@ -10,7 +10,9 @@ class Cidades extends Model
     use HasFactory;
 
     protected $fillable = [
-        'cidades',
+        'cidade',
     ];
+
+    public $timestamps = false;
 
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProdutosTableSeeder extends Seeder
 {
@@ -13,6 +14,21 @@ class ProdutosTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        if(DB::table('produtos')->count() == 0){
+
+            DB::table('produtos')->insert([
+
+                [
+                    'produto' => 'Sofá',
+                ],
+                [
+                    'produto' => 'Cadeira',
+                ],
+                [
+                    'produto' => 'Mesa',
+                ],
+
+            ]);
+        }
     }
 }

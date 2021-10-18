@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCampanhaGrupoCidadesTable extends Migration
+class CreateRelacaoGrupoCidadesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateCampanhaGrupoCidadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('campanha_grupo_cidades', function (Blueprint $table) {
+        Schema::create('relacao_grupo_cidades', function (Blueprint $table) {
             $table->id();
-            $table->string('campanha_grupo_cidade');
             $table->unsignedBigInteger('grupo_cidades_id');
-            $table->unsignedBigInteger('produto_id');
+            $table->unsignedBigInteger('cidade_id');
+            $table->foreign('cidade_id')->references('id')->on('cidades')->onDelete('cascade');
             $table->foreign('grupo_cidades_id')->references('id')->on('grupo_cidades')->onDelete('cascade');
-            $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
         });
     }
 
@@ -30,6 +29,6 @@ class CreateCampanhaGrupoCidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campanha_grupo_cidades');
+        Schema::dropIfExists('relacao_grupo_cidades');
     }
 }

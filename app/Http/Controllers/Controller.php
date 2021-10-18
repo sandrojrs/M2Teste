@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
 
@@ -45,10 +45,14 @@ class Controller extends BaseController
         if(is_null($resource))
             return response()->json('Resource does not exist', 404);
 
-        $resource->fill($request->all());
-        $resource->save();
+            try {
+                $resource->fill($request->all());
+                $resource->save();
+                return response()->json($resource, 200);
+            } catch (\Throwable $th) {
+                return response()->json($th->getMessage(), 404);
+            }
 
-        return response()->json($resource, 200);
     }
 
     public function destroy(int $id)
@@ -58,7 +62,7 @@ class Controller extends BaseController
         if($destroyed === 0)
             return response()->json('Resource does not exist', 404);
 
-        return response()->json('Destroyed', 204);
+        return response()->json(['Deletado com sucesso'], 204);
     }
 
 }

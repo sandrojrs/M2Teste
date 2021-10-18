@@ -15,9 +15,7 @@ class CreateGrupoCidadesTable extends Migration
     {
         Schema::create('grupo_cidades', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cidade_id');
             $table->string('grupo_cidade');
-            $table->foreign('cidade_id')->references('id')->on('cidades')->onDelete('cascade');
         });
     }
 

@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produtos;
-
-class ProdutosController extends Controller
+class RelacaoGrupoCidadeController extends Controller
 {
     public function __construct()
     {

@@ -10,14 +10,19 @@ class CampanhaGrupoCidades extends Model
     use HasFactory;
 
     protected $fillable = [
-        'campanha_grupo_cidade',
+        'campanha_grupo_cidade','grupo_cidades_id','produto_id'
     ];
 
+    public $timestamps = false;
+
     function grupoCidades (){
-        return $this->hasMany(GruposCidades::class, 'id');
+        return $this->hasMany(GrupoCidades::class, 'id')->select(['id']);
     }
     function produtos (){
         return $this->hasMany(Produtos::class, 'id');
+    }
+    function desconto (){
+        return $this->hasOne(DescontoProdutoCampanha::class, 'campanha_id');
     }
 
 }
